@@ -14,7 +14,7 @@ end
 
 get("/") do
   content_type :html
-  File.read( File.expand_path("../views/index.html", __FILE__) )
+  File.read( File.expand_path("../views/index2.html", __FILE__) )
 end
 
 get("/categories") do
@@ -41,7 +41,7 @@ end
 delete("/categories/:id") do
   category = Category.find(params[:id])
   category.destroy
-  
+
   category.to_json
 end
 
