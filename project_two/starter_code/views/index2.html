@@ -2,17 +2,26 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
-  <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
   <title>Contacts</title>
 </head>
 <body>
   <h1>My People</h1>
   <button id ="all-categories"> show all categories </button>
   <button id ="all-contacts"> show all contacts </button>
-  <button id ="create-contact"> Create New Contact </button>
-  <script type="text/javascript" src="/scripts.js"></script>
+  <button id ="delete-contact"> delete a contact </button>
+  <h3>Create New Contact</h3>
+  <form id="add-contact" class="form">
+    <input type="text" name="name" placeholder="Name" />
+    <input type="text" name="age" placeholder="Age" />
+    <input type="text" name="adress" placeholder="Adress" />
+    <input type="text" name="phone" placeholder="Phone Number" />
+    <input type="text" name="picture" placeholder="Picture" />
+    <button>Submit</button>
+  </form>
   <ul>
   </ul>
 </body>
+  <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+  <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  <script type="text/javascript" src="/scripts.js"></script>
 </html>
