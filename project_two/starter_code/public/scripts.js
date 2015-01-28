@@ -42,10 +42,6 @@ function postEntry(info) {
     }).done(function(data){
         console.log(data);
         debugger
-//postentry posts to database, gets response
-//now make a function that takes response and
-//appends it to the DOM. Call this function right here
-//call appendToDom
 appendnewcontactsToDom(data)
 })
 }
@@ -65,21 +61,28 @@ button3.addEventListener("submit", function(event){
 function appendnewcontactsToDom(data){
   var appended_info = data.name + " " + data.age + " " + data.address + " " + data.phone + " " + data.picture
   debugger
-  $('ul').append('<li>' + appended_info + '</li>')
+  // var $newLi = $('ul').append('<li>' + appended_info + '</li>')
 //parse data?
-
-}
+var $newLi = $('<li>' + appended_info + '</li>')
 
 button4.addEventListener("click", function(){
 var deleteId = $(this).parent().attr('id')
 deletefromDb(deleteId)
 })
 
+$newLi.append(button4);
+$newLi.attr('id', data.id);
+$('ul').append($newLi);
+debugger
+
+
+}
+
 
 function deletefromDb(id) {
 
   $.ajax({
-    url: '/entries/' + id,
+    url: '/contacts/' + id,
     method: 'DELETE',
   }).done(function(data)  {
     console.log(id + "deleted");
@@ -89,7 +92,16 @@ function deletefromDb(id) {
 }
 
 function deleteFromDom(id){
-  console.log("delete from dom called")
-  var $liToDelete = $gamblerList.find("#" + id)
+  var $liToDelete = $(ul).find("#" + id)
   $liToDelete.remove();
 }
+
+$.ajax({
+  url: 'http://api.randomuser.me/',
+  dataType: 'json',
+  success: function(data){
+    console.log(data);
+  }
+});
+
+
